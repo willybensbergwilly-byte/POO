@@ -26,8 +26,11 @@ class Restaurante:
     @property
     def media_avaliacoes(self):
         if not self.avaliacoes:
-        return 0
-    
+            return 0
+        notas_somadas = sum(avaliacao._nota for avaliacao in self._avaliacoes)
+        quantidade_avaliacoes = len(self._avaliacoes)
+        media = round(notas_somadas/quantidadae_avaliacoes,) 
+        return media
     def alterar_estado(self):
         self._status = not self._status     
     def receber_avaliacoes(self, cliente, nota):
