@@ -1,0 +1,13 @@
+→ O decorador '@propety'(para quando precisa tratar uma modificação em UM UNICO objeto) para controlar como um atrinuto é lido.
+
+→ Atributos protegidos ('_underscore') e porque proteger dados.
+
+→'@classmethod'(para quando precisa tratar uma modificação para TODOS os objetos) e a ddiferença entre metodo de classe e de instancia
+
+→ Como separar o projeto em multiplos arquivos('restaurante.py e 'app.py') usando 'import'(um metodo de repasse de informações).
+
+→ Criar uma nova classe 'avaliação e relaciona-la com 'restaurante'.
+
+→ Calcular e exibir a media de avaiações formatada no termino.
+
+instancia = somente o objeto.
