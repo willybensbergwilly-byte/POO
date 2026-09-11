@@ -20,9 +20,17 @@ class Restaurante:
     def listar_restaurante(cls):
         for restaurante in cls.restaurantes:
             print(f"Nome: {restaurante.nome_restaurante} \n|Rua: {restaurante.localizacao} \n|Tipo de Comida: {restaurante.tipo_de_comida} \n|Avaliações:{restaurante.media_avaliacoes} \n|Quantidade de Funcionários: {str(restaurante.quantidade_funcionarios)} \n|Status: {restaurante.ativo}")
+    
+    
+    
+    
     @property
     def ativo(self):
         return 'ativo' if self._status else 'inativo'
+    
+    
+    
+    
     @property
     def media_avaliacoes(self):
         if not self.avaliacoes:
