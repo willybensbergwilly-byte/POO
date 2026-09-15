@@ -1,0 +1,22 @@
+Uma loja deseja criar um pequeno sistema para organizar clientes, produtos e pedidos. Para isso, você
+deverá trabalhar com três classes relacionadas.
+
+Crie uma classe Cliente, contendo os atributos nome e email.
+
+Depois, crie uma classe Produto, contendo os atributos nome e preco.
+
+Por fim, crie uma classe Pedido. Um pedido deverá receber um objeto da classe Cliente no momento
+de sua criação e também deverá possuir uma lista protegida _produtos, inicialmente vazia.
+
+Na classe Pedido, crie um método adicionar_produto(produto), que deverá receber um objeto da
+classe Produto e adicioná-lo à lista do pedido.
+
+Crie também uma @property chamada valor_total. Essa propriedade deverá percorrer todos os
+produtos adicionados ao pedido e calcular a soma de seus preços.
+
+Além disso, desenvolva um método chamado exibir_resumo(). Ele deverá mostrar o nome do cliente,
+os produtos comprados e o valor total do pedido.
+
+Neste exercício, organize o projeto em vários arquivos. Cada classe deverá possuir seu próprio
+arquivo dentro de uma pasta chamada modelos, enquanto o arquivo app.py deverá ser utilizado para
+importar as classes, criar os objetos e executar os testes do programa.

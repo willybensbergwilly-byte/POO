@@ -1,0 +1,19 @@
+Uma plataforma de streaming precisa organizar todos os filmes cadastrados em seu catálogo.
+
+Crie uma classe chamada Filme, contendo os atributos titulo, genero e ano. Cada objeto criado deverá
+ser automaticamente adicionado a uma lista de classe chamada filmes.
+
+
+Depois, crie um método de classe chamado listar_filmes(). Esse método deverá utilizar @classmethod,
+receber cls como primeiro parâmetro e percorrer a lista de filmes cadastrados.
+
+
+A listagem deverá apresentar os dados dos filmes de maneira organizada, mostrando pelo menos o
+título, o gênero e o ano de lançamento.
+
+
+Crie pelo menos cinco objetos da classe Filme antes de executar a listagem.
+
+
+O objetivo deste exercício é perceber que a listagem pertence à classe como um todo, pois trabalha
+com todos os objetos cadastrados, e não apenas com um filme específico.

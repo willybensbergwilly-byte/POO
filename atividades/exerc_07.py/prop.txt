@@ -1,0 +1,20 @@
+Uma instituição de ensino precisa controlar quais alunos estão matriculados em cada curso. Para
+representar esse problema, crie duas classes diferentes: Aluno e Curso.
+
+
+A classe Aluno deverá possuir os atributos nome e idade.
+
+A classe Curso deverá possuir um atributo nome e uma lista protegida _alunos. Essa lista deverá
+iniciar vazia quando um novo curso for criado.
+
+
+Dentro da classe Curso, desenvolva um método chamado matricular_aluno(aluno). Esse método
+deverá receber como argumento um objeto da classe Aluno e adicioná-lo à lista _alunos.
+
+
+Crie também um método chamado listar_alunos(), que deverá percorrer a lista e exibir os alunos
+matriculados naquele curso.
+
+
+Ao final, crie pelo menos quatro alunos e dois cursos. Depois, distribua os alunos entre os cursos e
+apresente as respectivas listagens.

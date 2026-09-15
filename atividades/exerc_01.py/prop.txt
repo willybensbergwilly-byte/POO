@@ -1,0 +1,13 @@
+Uma escola precisa organizar os dados dos alunos matriculados em seus cursos. Para isso, você
+deverá criar uma classe chamada Aluno, responsável por representar cada aluno do sistema.
+
+
+A classe deverá possuir os atributos nome, curso e idade, e esses dados deverão ser recebidos pelo
+método construtor __init__ no momento em que um novo objeto for criado. Depois disso, crie
+também o método especial __str__ para definir como as informações do aluno serão exibidas quando
+o objeto for utilizado dentro de um print().
+
+
+Ao finalizar a classe, crie pelo menos três objetos diferentes da classe Aluno, preenchendo cada um
+com informações distintas. Exiba todos os alunos no terminal e verifique se o __str__ está
+apresentando os dados de forma compreensível.

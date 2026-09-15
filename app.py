@@ -10,7 +10,7 @@ la_mafia.receber_avaliacoes("Noreh", 5)
 
 pastel = Prato("pastel de rato", 6.66, "Pastel de rato shodebola")
 leitededemiurgo = Bebidas("lentinho de demiurgo docinho docinho", 4.99, "400ml")
-bolo_de_bujao = Sobremesa("Bujão gaseficado", 3.90, "Gaseificado")
+
 la_mafia.adicionar_cardapio(pastel)
 la_mafia.adicionar_cardapio(leitededemiurgo)
 

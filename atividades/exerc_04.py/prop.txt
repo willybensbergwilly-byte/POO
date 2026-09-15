@@ -1,0 +1,18 @@
+Uma biblioteca deseja controlar os livros que estão disponíveis e aqueles que já foram emprestados.
+
+Crie uma classe chamada Livro com os atributos titulo, autor, ano e _disponivel. Todo livro deverá
+iniciar com _disponivel = True.
+
+
+Crie uma @property chamada disponibilidade, que deverá retornar "Disponível" quando o livro puder
+ser emprestado e "Emprestado" quando ele estiver em uso.
+
+
+Depois, crie os métodos emprestar() e devolver(). O primeiro deverá alterar o estado do livro para
+indisponível e o segundo deverá torná-lo disponível novamente.
+
+
+Além disso, todos os livros criados deverão ser armazenados em uma lista de classe chamada livros.
+
+Cadastre pelo menos quatro livros, realize empréstimos e devoluções e exiba o estado final de cada
+objeto.

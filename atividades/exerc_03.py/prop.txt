@@ -1,0 +1,21 @@
+Desenvolva uma classe chamada ContaBancaria para representar uma conta de um cliente.
+
+Cada conta deverá possuir um atributo titular, contendo o nome do cliente, e um atributo protegido
+_saldo, contendo o valor disponível na conta. O saldo inicial deverá ser informado no momento em
+que o objeto for criado.
+
+
+Crie um método chamado depositar(valor), que deverá adicionar o valor informado ao saldo da conta.
+Depois, crie um método sacar(valor), que deverá retirar o valor solicitado somente quando houver
+saldo suficiente.
+
+
+Caso o cliente tente sacar um valor maior do que possui, o programa deverá apresentar uma
+mensagem informando que a operação não pode ser realizada.
+
+Crie também uma @property chamada saldo, permitindo consultar o saldo atual sem acessar _saldo
+diretamente.
+
+
+Para testar seu programa, crie pelo menos duas contas bancárias e realize diferentes operações de
+depósito e saque.

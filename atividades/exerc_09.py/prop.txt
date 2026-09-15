@@ -1,0 +1,22 @@
+Uma academia precisa controlar os planos oferecidos aos clientes e identificar quais deles estão ativos
+ou inativos.
+
+
+Crie uma classe chamada Plano, contendo os atributos nome, valor e _ativo. Todos os objetos criados
+deverão ser armazenados em uma lista de classe chamada planos.
+
+
+Crie uma @property chamada status, que deverá retornar "Ativo" ou "Inativo" de acordo com o valor
+armazenado em _ativo.
+
+
+Depois, crie um método de instância chamado alternar_status(). Esse método deverá modificar o
+estado de um plano específico, alternando entre ativo e inativo.
+
+
+Crie também um método de classe chamado listar_planos(), utilizando @classmethod. Ele deverá
+percorrer todos os planos cadastrados e apresentar o nome, o valor e o status de cada um.
+
+
+Cadastre pelo menos quatro planos, altere o estado de alguns deles e depois exiba a listagem
+completa.

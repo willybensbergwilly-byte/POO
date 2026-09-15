@@ -1,0 +1,22 @@
+Um sistema de reservas deseja permitir que hóspedes avaliem os hotéis cadastrados.
+
+Crie inicialmente uma classe chamada Avaliacao. Ela deverá possuir os atributos protegidos _cliente e
+_nota.
+
+
+Depois, crie uma classe chamada Hotel, contendo os atributos nome, cidade e uma lista protegida
+_avaliacoes. Essa lista deverá iniciar vazia.
+
+
+Na classe Hotel, crie o método receber_avaliacao(cliente, nota). Quando esse método for executado,
+ele deverá criar um novo objeto da classe Avaliacao e armazená-lo dentro da lista _avaliacoes daquele
+hotel.
+
+
+Depois disso, crie uma @property chamada media_avaliacoes. Ela deverá percorrer as avaliações
+armazenadas, somar suas notas e calcular a média.
+
+
+Caso o hotel ainda não tenha recebido nenhuma avaliação, a propriedade deverá retornar 0.
+
+Crie pelo menos três hotéis e registre várias avaliações para testar o cálculo das médias.

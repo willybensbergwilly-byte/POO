@@ -1,0 +1,19 @@
+Uma empresa deseja criar um sistema simples para controlar os salários de seus funcionários.
+
+Crie uma classe chamada Funcionario com os atributos nome, cargo e _salario. O salário deverá ser
+tratado como um atributo protegido.
+
+
+Crie uma @property chamada salario, responsável por permitir a consulta do valor atual.
+
+Depois, desenvolva um método chamado aumentar_salario(percentual). Esse método deverá receber
+um percentual de aumento, calcular quanto deverá ser acrescentado e atualizar o valor armazenado
+em _salario.
+
+
+Por exemplo, se um funcionário recebe R$ 2.000,00 e receber um aumento de 10%, seu novo salário
+deverá ser R$ 2.200,00.
+
+
+Crie pelo menos três funcionários e aplique percentuais diferentes de aumento para verificar o
+funcionamento do método.

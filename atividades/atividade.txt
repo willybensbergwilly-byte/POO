@@ -1,0 +1,39 @@
+isinstance
+o que é
+verifica se algo é de determinada classe
+
+como funciona no codigo 
+
+uma analogia
+se existe um jovem com 16 quetrendo entrar em um cinema com filme com classeficação
+de 18 ele não vai deixar o jovem entrar
+
+ele verifica se algo é de um item é de uma classe especifica
+
+--------------------------------------------------------------------------------------------------------
+
+has attr
+o que é
+verifica se o objeto possui um atributo (atributo é como se fosse uma variavel)
+como funciona no codigo
+
+uma analogia
+imagine o restaurante
+
+la_mafia = Restaurante("La Mafia", "Italiana")
+print(la_mafia.nome)
+print(hasattr(la_mafia, "nome"))
+
+o hassttr vai verificar se o la_mafia vai ter um atributo nome, se sim ele exibe "True", mas se ele tiver qualquer outro
+a de exemplo "telefone" ele exibira falso
+pois nao possui um atributo chamado "telefone"
+
+--------------------------------------------------------------------------------------------------------
+
+enumerate
+o que é
+numera itens de uma determinada lista
+como funciona no codigo
+funciona com while ou for porque ele lista os itens de uma lista, for(para cada) (i) item com enumerate
+
+livro1 = Livro("1984", "George Orwell", "08/07/1949")
