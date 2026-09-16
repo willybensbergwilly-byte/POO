@@ -19,5 +19,4 @@ class Livro:
             else:
                   return 
             livro1 = Livro("1984", "George Orwell", "08/07/1949", True)
-            
-            
+    

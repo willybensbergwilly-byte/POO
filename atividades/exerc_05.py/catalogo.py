@@ -5,7 +5,4 @@ class Filmes:
         self.ano = ano
         
         def __str__(self):
-            return f"|titulo:{self.titulo}\n | genero:{self.genero}\n| ano:{ano}|"
-        
-        
-    
+           return f"|titulo:{self.titulo}\n | genero:{self.genero}\n| ano:{ano}|"
