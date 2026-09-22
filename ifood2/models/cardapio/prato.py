@@ -1,0 +1,10 @@
+from ifood2.venv.models.cardapio.itemcardapio import ItemCardapio
+class Prato(ItemCardapio):
+   def __init__(self, nome, preco, descricao):
+       super().__init__(nome,preco)
+       self.descricao = descricao
+    # self.nome = nome
+    #    self.preco = preco
+       
+       def  __str__(self):
+           return self._nome
