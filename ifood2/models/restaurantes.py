@@ -1,5 +1,7 @@
-from ifood2.venv.models.avaliacoes import Avaliacoes
-from ifood2.venv.models.cardapio.itemcardapio import ItemCardapio
+from ifood2.models.avaliacoes import Avaliacoes
+from ifood2.models.cardapio.itemcardapio import ItemCardapio    
+from ifood2.models.avaliacoes import Avaliacoes
+
 class Restaurante:
     restaurantes = []
     avaliacoes = []

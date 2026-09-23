@@ -1,4 +1,4 @@
-from models.avaliacoes import Avaliacao
+from ifood2.venv.models.avaliacoes import Avaliacao
 
 class Hotel:
     def __init__(self, nome_hotel, cidade):

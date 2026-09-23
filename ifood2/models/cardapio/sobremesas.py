@@ -1,4 +1,4 @@
-from ifood2.venv.models.cardapio.itemcardapio import ItemCardapio
+from ifood2.models.cardapio.itemcardapio import ItemCardapio
 class Sobremesa(ItemCardapio):
     def __init__(self, nome, preco, sabor):
         super().__init__(nome, preco)

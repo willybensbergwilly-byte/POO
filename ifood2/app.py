@@ -26,10 +26,23 @@
 # if __name__ == '__main__':
 #     main()
 
-from db import tabela_restaurante, criar_restaurante, listar_restaurantes, tabela_avaliacoes, criar_avaliacoes
+from repositories.cardapio_rep import tabela_item_cardapio, criar_item_cardapio
+from ifood2.banco.db import tabela_restaurante, criar_restaurante, listar_restaurantes, tabela_avaliacoes, criar_avaliacoes
+
+def main():
+    tabela_item_cardapio()
+    criar_item_cardapio()
+    # criar_restaurante("Green Dog", "HotDog")
+    # criar_avaliacoes("1","Não é o Heron", 4.5)
+
+if __name__ == '__main__':
+    main()
+    
 
 tabela_restaurante()
 tabela_avaliacoes()
+tabela_item_cardapio()
+
 
 criar_restaurante("Green Dog", "HotDog")
 criar_avaliacoes("1","Não é o Heron", 4.5)
