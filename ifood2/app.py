@@ -1,50 +1,69 @@
-# from venv.models.restaurantes import Restaurante
-# from venv.models.cardapio.bebida import Bebidas
-# from venv.models.cardapio.prato import Prato
-# la_mafia = Restaurante("La Mafia", "Rua das Flores, 123", "Comida Italiana", 15)
-# mada = Restaurante("Mada", "Rua das Palmeiras, 456", "Comida Brasileira", 20)
-# steve_pizza = Restaurante("Steve Pizza", "Rua das Laranjeiras, 789", "Comida Japonesa", 10)
-# Restaurante.alterar_estado(la_mafia)
+from functools import wraps
+from flask import Flask, render_template, request, redirect, url_for, session
+from werkzeug.security import generate_password_hash, check_password_hash
+from models.usuario import Usuario
+from repositories import usuario_rep, restaurante_rep, avaliacoes_rep, cardapio_rep
+  
+app = Flask(__name__) 
+app.secret_key = '*&#&($¨(89729828D**#9873827074180908))'
 
-# la_mafia.receber_avaliacoes("Noreh", 5)
-
-# pastel = Prato("pastel de rato", 6.66, "Pastel de rato shodebola")
-# leitededemiurgo = Bebidas("lentinho de demiurgo docinho docinho", 4.99, "400ml")
-
-# la_mafia.adicionar_cardapio(pastel)
-# la_mafia.adicionar_cardapio(leitededemiurgo)
-
-
-# def main():
-#     Restaurante.listar_restaurante()    
-#     print(pastel)
-#     print(leitededemiurgo)
-
-# def main():
-#         la_mafia.exibir_cardapio
+def login_required(funcao):
+    @wraps(funcao)
+    def verificar(*args,**kwargs):
+        if 'id_usuario' not in session:
+            return redirect(url_for('login'))
+        else:
+            return (*args, *kwargs)
+        return verificar
     
-# if __name__ == '__main__':
-#     main()
+@app.route('/cadastro', methods=['GET', 'POST'])
+def cadastro ():
+    if request.methos  == 'POST':
+        nome = request.form['nome']
+        email = request.form['email']
+        senha_hash = generate_password_hash(request.form['senha'])
+        if usuario_rep.buscar_email(email) is not None:
+            return render_template('cadastro.html', erro = 'Este email já esta Cadastrado.')
+        else:
+            usuario = Usuario(nome, email, senha_hash)
+            usuario_rep.criar_usuario(usuario)
+            return redirect(url_for('login'))
+        
+    return render_template('cadastro.html')
 
-from repositories.cardapio_rep import tabela_item_cardapio, criar_item_cardapio
-from ifood2.banco.db import tabela_restaurante, criar_restaurante, listar_restaurantes, tabela_avaliacoes, criar_avaliacoes
+@app.route('/login', method=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request['email']
+        senha = request['senha']
+        
+        usuario = usuario_rep.buscar_email(email)
+        if usuario and check_password_hash(usuario._senha_hash, senha):
+            session['usuario_id'] = usuario.id
+            return redirect(url_for('painel'))
+        else:
+            return render_template('login.html', erro='Email ou Senha Inválidos.')
+    else:
+        return render_template('login.html')
+@app.route('/logout')
+def logout():
+    session.pop('id_usuario', None)
+    return redirect(url_for('login.html'))
 
-def main():
-    tabela_item_cardapio()
-    criar_item_cardapio()
-    # criar_restaurante("Green Dog", "HotDog")
-    # criar_avaliacoes("1","Não é o Heron", 4.5)
+@app.route('/painel')
+@login_required
+def painnel():
+    usuario = usuario_rep.buscar_por_email(session['usuario.id'])
+    return render_template('painel.html', usuario=usuario)
+@app.route('/restaurantes')
+@login_required
+def restaurantes():
+    lista_restaurantes = restaurante_rep.listar_restaurantes()
+    return render_template('restaurante.html', restaurantes=lista_restaurantes)
 
-if __name__ == '__main__':
-    main()
-    
-
-tabela_restaurante()
-tabela_avaliacoes()
-tabela_item_cardapio()
-
-
-criar_restaurante("Green Dog", "HotDog")
-criar_avaliacoes("1","Não é o Heron", 4.5)
-
-listar_restaurantes()
+if __name__ == 'main':
+    restaurante_rep.tabela_restaurante()
+    avaliacoes_rep.tabela_avaliacoes()
+    cardapio_rep.tabela_item_cardapio()
+    usuario_rep.tabela_usuario()
+     
