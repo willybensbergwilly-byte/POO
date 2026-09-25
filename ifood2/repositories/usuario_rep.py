@@ -1,5 +1,6 @@
-from ifood2.banco.db import conectar
-from ifood2.models.usuario import Usuario
+from banco.db import conectar
+from models.usuario import Usuario
+
 def tabela_usuario ():
     conexao = conectar()
     cursor = conexao.cursor()
@@ -36,9 +37,9 @@ def buscar_email(email):
     cursor.execute = ("""
         SELECT id, nome, email, senha_hash FROM usuarios:
         WHERE email = %s
-    """, (email)
+    """, (email,)
     )
-    usuarios = cursor.fetchall()
+    usuarios = cursor.fetchone()
     conexao.close()
     
     if usuarios is None:
@@ -49,5 +50,6 @@ def buscar_email(email):
     usuario.id = id_usuario 
     return usuario
     
+
     
     

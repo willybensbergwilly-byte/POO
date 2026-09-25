@@ -1,11 +1,12 @@
 from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
+from ifood2.repositories import usuario_rep
+from repositories import restaurante_rep, avaliacoes_rep, cardapio_rep
 from models.usuario import Usuario
-from repositories import usuario_rep, restaurante_rep, avaliacoes_rep, cardapio_rep
-  
+
 app = Flask(__name__) 
-app.secret_key = '*&#&($¨(89729828D**#9873827074180908))'
+app.secret_key = '~~WrbdskmNN777'
 
 def login_required(funcao):
     @wraps(funcao)
@@ -14,11 +15,11 @@ def login_required(funcao):
             return redirect(url_for('login'))
         else:
             return (*args, *kwargs)
-        return verificar
+    return verificar
     
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro ():
-    if request.methos  == 'POST':
+    if request.method == 'POST':
         nome = request.form['nome']
         email = request.form['email']
         senha_hash = generate_password_hash(request.form['senha'])
@@ -31,11 +32,11 @@ def cadastro ():
         
     return render_template('cadastro.html')
 
-@app.route('/login', method=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request['email']
-        senha = request['senha']
+        email = request.form['email']
+        senha = request.form['senha']
         
         usuario = usuario_rep.buscar_email(email)
         if usuario and check_password_hash(usuario._senha_hash, senha):
@@ -52,18 +53,20 @@ def logout():
 
 @app.route('/painel')
 @login_required
-def painnel():
-    usuario = usuario_rep.buscar_por_email(session['usuario.id'])
+def painel():
+    usuario = usuario_rep.buscar_email(session['usuario.id'])
     return render_template('painel.html', usuario=usuario)
+
 @app.route('/restaurantes')
 @login_required
 def restaurantes():
     lista_restaurantes = restaurante_rep.listar_restaurantes()
     return render_template('restaurante.html', restaurantes=lista_restaurantes)
 
-if __name__ == 'main':
+if __name__ == '__main__':
     restaurante_rep.tabela_restaurante()
     avaliacoes_rep.tabela_avaliacoes()
     cardapio_rep.tabela_item_cardapio()
     usuario_rep.tabela_usuario()
+    app.run(debug = True)
      

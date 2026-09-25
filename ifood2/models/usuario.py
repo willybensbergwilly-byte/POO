@@ -4,6 +4,4 @@ class Usuario:
         self.nome = nome
         self.email = email
         self._senha_hash = senha_hash
-         
-
         

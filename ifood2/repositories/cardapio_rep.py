@@ -1,6 +1,6 @@
-from ifood2.banco.db import conectar
-from ifood2.models.cardapio.prato import Prato
-from ifood2.models.cardapio.bebida import Bebidas
+from banco.db import conectar
+from models.cardapio.prato import Prato
+from models.cardapio.bebida import Bebidas
 
 def tabela_item_cardapio():
     conexao = conectar()
@@ -43,3 +43,20 @@ def criar_item_cardapio(id_restaurante, nome_item, preco, tipo_item, descricao, 
     """, (id_restaurante, nome_item, preco, tipo_item, descricao, tamanho))
     conexao.commit()
     conexao.close()
+    
+def listar_por_restaurante(id):
+    conexao = conectar()
+    cursor = conexao.cursor()
+    cursor.execute("SELECT * FROM item_cardapio WHERE id_restaurante = %s", (id,)) 
+    resultado = cursor.fetchall()
+    conexao.close()
+    itens = []
+    for nome, preco_item, descricao, tamanho in resultado:
+        preco_item = float(preco_item)
+        if tipo_item == 'prato':
+            itens.append(Prato(nome, preco_item, descricao, tamanho))
+        elif tipo_item == 'bebida':
+            itens.append(Bebidas(nome, preco_item, descricao, tamanho))
+    return itens
+
+

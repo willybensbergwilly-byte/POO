@@ -1,4 +1,4 @@
-from ifood2.banco.db import conectar
+from banco.db import conectar
 
 def tabela_avaliacoes ():
     conexao = conectar()
@@ -12,7 +12,7 @@ def tabela_avaliacoes ():
             FOREIGN KEY (id_restaurante) REFERENCES restaurantes(id)
             )
         """
-    cursor.execute(criar_avaliacoes)
+    cursor.execute(criar_tabela_avaliacoes)
     conexao.commit()
     conexao.close()
     
