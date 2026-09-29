@@ -2,14 +2,14 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>{% block titulo %}Sabor Express{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+    <title>{% block titulo %}IFood2{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <h1>Sabor Express</h1>
+        <h1>IFood2</h1>
         <nav>
-            {% if session.get('usuario_id') %}
+            {% if session.get('id_usuario') %}
                 <a href="{{ url_for('painel') }}">Painel</a>
                 <a href="{{ url_for('restaurantes') }}">Restaurantes</a>
                 <a href="{{ url_for('logout') }}">Sair</a>

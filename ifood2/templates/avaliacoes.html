@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Avaliações do {{ restaurante.nome }} - IFood2 {% endblock %}
+
+{% block conteudo %}
+    <h2>Avaliações de {{restaurante.nome}}</h2>
+    <p>Média geral: <strong>{{ restaurante.media_avaliacoes }}</strong></p>
+
+    {% if restaurante._avaliacoes %}
+        <ul>
+            {% for avaliacao in restaurante._avaliacoes %}
+                <li>{{ avaliacao }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Este restaurante ainda não possui avaliações.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('avaliar_restaurante', id_restaurante = restaurante.id)}}">Deixar uma avaliação</a></p>
+    <p><a href="{{url_for('listar_cardapio', id_restaurante = restaurante.id)}}">Ver Cardápio</a></p>
+{% endblock %}
